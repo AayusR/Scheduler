@@ -1,12 +1,30 @@
-import express from 'express'
+import express from "express";
 import employerAuthController from "../controllers/employerAuthController.js";
-const employerRouter = express.Router()
+import jwt from "jsonwebtoken";
+import "dotenv/config";
+const employerRouter = express.Router();
 
-employerRouter.post('/signup', employerAuthController.signup);
-employerRouter.post('/login', employerAuthController.login);
-employerRouter.get('/dashboard', (req, res)=>{
-    res.send("User profile")
-})
+const authenticateJWT = (req, res, next) => {
+  const token = req.header("Authorization");
 
+  if (!token) {
+    return res.sendStatus(401);
+  }
 
-export default employerRouter
+  jwt.verify(token, process.env.JWT_SECRET_C, (err, user) => {
+    if (err) {
+      return res.sendStatus(403);
+    }
+
+    req.user = user;
+    next();
+  });
+};
+
+employerRouter.post("/signup", employerAuthController.signup);
+employerRouter.post("/login", employerAuthController.login);
+employerRouter.get("/dashboard", authenticateJWT, (req, res) => {
+  res.send("User dashboard");
+});
+
+export default employerRouter;
