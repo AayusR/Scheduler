@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-import Company from "../models/company.js";
+import Company from "../../models/company/company.js";
+
 import bcrypt from "bcrypt";
 
 async function signup(req, res) {
@@ -12,7 +13,7 @@ async function signup(req, res) {
     });
 
     if (!existingStaff) {
-      const newStaff = new Company({
+      const newStaff = new Company({ 
         fName: fName,
         lName: lName,
         email: email,
@@ -49,6 +50,7 @@ async function login(req, res) {
             email: staff.email,
             company: staff.company,
             department: staff.department,
+            role: 'Company',
           },
           process.env.JWT_SECRET_C
         );

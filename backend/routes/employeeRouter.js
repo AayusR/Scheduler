@@ -1,30 +1,23 @@
 import express from "express";
-import employeeAuthController from "../controllers/employeeAuthController.js";
-import jwt from "jsonwebtoken";
-import "dotenv/config";
+import employeeAuthController from "../controllers/applicantcontroller/employeeAuthController.js";
+
+import { authenticateJWT } from "../middleware/jwt.js";
+import getJobOffersController from "../controllers/applicantcontroller/getJobOffersController.js";
 const employeeRouter = express.Router();
-
-const authenticateJWT = (req, res, next) => {
-  const token = req.header("Authorization");
-
-  if (!token) {
-    return res.sendStatus(401);
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET_E, (err, user) => {
-    if (err) {
-      return res.sendStatus(403);
-    }
-
-    req.user = user;
-    next();
-  });
-};
 
 employeeRouter.post("/signup", employeeAuthController.signup);
 employeeRouter.post("/login", employeeAuthController.login);
-employeeRouter.get("/profile", authenticateJWT, (req, res) => {
+employeeRouter.get("/profile", authenticateJWT("Employee"), (req, res) => {
   res.send("User profile");
 });
-
+employeeRouter.get(
+  "/joboffers",
+  authenticateJWT("Employee"),
+  getJobOffersController.getJobOffers
+);
+employeeRouter.get(
+  "/joboffers/:jobOfferId",
+  authenticateJWT("Employee"),
+  getJobOffersController.getJobById
+);
 export default employeeRouter;

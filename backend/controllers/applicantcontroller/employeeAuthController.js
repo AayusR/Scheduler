@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/user.js";
+import User from "../../models/applicant/user.js";
 import bcrypt from "bcrypt";
 
 async function signup(req, res) {
@@ -41,7 +41,7 @@ async function login(req, res) {
       const match = await bcrypt.compare(password, user.password);
       if (match) {
         const token = jwt.sign(
-          { email: user.email, role: user.role },
+          { email: user.email, role: user.role, role: "Employee" },
           process.env.JWT_SECRET_E
         );
 
