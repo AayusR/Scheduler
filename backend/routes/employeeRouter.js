@@ -20,4 +20,9 @@ employeeRouter.get(
   authenticateJWT("Employee"),
   getJobOffersController.getJobById
 );
+employeeRouter.post(
+  "/joboffers/:jobOfferId/submit-requirements",
+  authenticateJWT("Employee"),
+  getJobOffersController.postRequirements
+);
 export default employeeRouter;

@@ -9,7 +9,7 @@ async function signup(req, res) {
 
     const existingStaff = await Company.findOne({
       email: email,
-      role: "Employee",
+      role: "Employer",
     });
 
     if (!existingStaff) {
@@ -20,6 +20,7 @@ async function signup(req, res) {
         department: department,
         company: company,
         password: await bcrypt.hash(password, 5),
+        role: "Employer",
       });
 
       await newStaff.save();

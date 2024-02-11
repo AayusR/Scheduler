@@ -1,6 +1,10 @@
-import  mongoose  from 'mongoose';
+import mongoose from "mongoose";
 
 async function connectDB() {
-    return mongoose.connect('mongodb://127.0.0.1:27017/dsa');
+  try {
+    await mongoose.connect("mongodb://admin:admin@localhost:27017/");
+  } catch (error) {
+    console.error(`Error connecting to the database: ${error.message}`);
+  }
 }
-export default connectDB; 
+export default connectDB;

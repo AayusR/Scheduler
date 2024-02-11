@@ -2,7 +2,7 @@ import JobOffer from "../../models/company/joboffer.js";
 
 const createJob = async (req, res) => {
   try {
- 
+
 
     const {
       title,

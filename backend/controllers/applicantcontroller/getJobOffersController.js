@@ -1,5 +1,5 @@
 import JobOffer from "../../models/company/joboffer.js";
-
+import JobApplication from "../../models/applicant/applicationform.js";
 const getJobOffers = async (req, res) => {
   try {
     const currentDate = new Date();
@@ -33,7 +33,49 @@ const getJobById = async (req, res) => {
   }
 };
 
+const postRequirements = async (req, res) => {
+  try {
+    const jobId = req.params.id;
+    const {
+      fullName,
+
+      email,
+      phone,
+      resumeLink,
+      coverLetter,
+      workExperience,
+      education,
+      skills,
+      customQuestions,
+      linkedinProfile,
+    } = req.body;
+
+    const application = new JobApplication({
+      jobId,
+      fullName,
+      email,
+      phone,
+      resumeLink,
+      coverLetter,
+      workExperience,
+      education,
+      skills,
+      customQuestions,
+      linkedinProfile,
+    });
+
+    await application.save();
+
+    return res.json({
+      message: "Job application submitted successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 export default {
   getJobOffers,
   getJobById,
+  postRequirements,
 };
