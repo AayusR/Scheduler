@@ -1,38 +1,43 @@
-import { useState } from 'react'
-import axiosInstance from '../axios'
-import './App.css'
+
+import{Routes,Route} from "react-router-dom";
+
+
+import Classpage from "./pages/Classpage";
+import Testimonials from "./pages/Testimonials";
+import homepage from "./pages/homepage";
+import Faqpage from "./pages/Faqpage";
+import AddJobs from "./pages/AddJobs";
+
+
+import NavbarComponent from "./Components/NavbarComponent";
+import Footer from "./Components/Footer";
+
+
+
+
+
+
+
 
 function App() {
-  const [Connection, setConnection] = useState(null)
-  const [error, setError] = useState(null)
-  function handleclick() {
-    axiosInstance.get('/')
-    .then(res =>{
-        console.log(res.data);
-        setConnection(res.data);
-        setError(null);
-    }).catch(err =>{console.log(err);
-      setError('Something went wrong');
-      setConnection(null);})
-  }
-  return (
-    <>
-      <div>
-     
-     
-      
-        <button onClick={handleclick}>
-        Check Connection
-        </button>
-        <br/>   
-        {error ? (
-          <p style={{ color: 'red' }}>{error}</p>
-        ) : (
-          Connection && <p> {Connection}</p>
-        )}
-      </div>
-    
-    </>
+  
+  return(
+
+    <div> 
+      <NavbarComponent/>
+      <Routes>
+        <Route  path ="/" Component={homepage}/>
+        <Route  path ="/class" Component={Classpage}/>
+        <Route  path ="/testimonial" Component={Testimonials}/>
+        <Route  path ="/faq" Component={Faqpage}/>
+        <Route  path ="/addjobs" Component={AddJobs}/>
+
+
+
+      </Routes>
+      <Footer/>
+    </div>
+
   )
 }
 
