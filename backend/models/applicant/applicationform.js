@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-// Caution : Yo complete xaina
+
 const jobApplicationSchema = new mongoose.Schema({
   jobId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -15,8 +15,8 @@ const jobApplicationSchema = new mongoose.Schema({
     required: true,
   },
   phone: Number,
-  resumeLink: String, // Yo Paxi garne //
-  coverLetter: String, 
+  resumeLink: String, 
+
   workExperience: {
     type: Number, 
     default: 0, 
@@ -32,4 +32,4 @@ const jobApplicationSchema = new mongoose.Schema({
 
 const JobApplication = mongoose.model('JobApplication', jobApplicationSchema);
 
-module.exports = JobApplication;
+export default JobApplication;

@@ -1,5 +1,20 @@
 import JobOffer from "../../models/company/joboffer.js";
 import JobApplication from "../../models/applicant/applicationform.js";
+import multer from "multer";
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "../uploads");
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now().toString().substring(0, 7);
+
+    cb(null, uniqueSuffix + ".pdf");
+  },
+});
+
+const upload = multer({ storage });
+
 const getJobOffers = async (req, res) => {
   try {
     const currentDate = new Date();
@@ -28,27 +43,41 @@ const getJobById = async (req, res) => {
     }
     res.status(200).json(jobOffer);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-const postRequirements = async (req, res) => {
+const postResume = async (req, res) => {
   try {
-    const jobId = req.params.id;
+    await upload.single("pdfFile")(req, res, async (err) => {
+      if (err) {
+        console.log(err);
+        throw new Error("File upload failed");
+      }
+      return res.status(200).json({ message: `Resume saved successfully` });
+    });
+  } catch (error) {
+    return res.status(500).json({ error: `${error.message}` });
+  }
+};
+
+const postForm = async (req, res) => {
+  try {
+    // const jobId = req.params.id;
+
+    const jobId = "65e47662a16e0c7deb2fc974";
     const {
       fullName,
-
       email,
       phone,
-      resumeLink,
-      coverLetter,
       workExperience,
       education,
       skills,
       customQuestions,
       linkedinProfile,
     } = req.body;
+    const resumeLink = Date.now().toString().substring(0, 7);
+    console.log(resumeLink);
 
     const application = new JobApplication({
       jobId,
@@ -56,7 +85,7 @@ const postRequirements = async (req, res) => {
       email,
       phone,
       resumeLink,
-      coverLetter,
+
       workExperience,
       education,
       skills,
@@ -66,16 +95,17 @@ const postRequirements = async (req, res) => {
 
     await application.save();
 
-    return res.json({
+    return await res.json({
       message: "Job application submitted successfully",
     });
   } catch (error) {
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.json({ error: `${error.message}` });
   }
 };
 
 export default {
   getJobOffers,
   getJobById,
-  postRequirements,
+  postForm,
+  postResume,
 };
