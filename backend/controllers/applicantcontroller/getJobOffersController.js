@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
     cb(null, "../uploads");
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now().toString().substring(0, 7);
+    const uniqueSuffix = Date.now().toString().substring(0, 10);
 
     cb(null, uniqueSuffix + ".pdf");
   },
@@ -49,11 +49,18 @@ const getJobById = async (req, res) => {
 const postResume = async (req, res) => {
   try {
     await upload.single("pdfFile")(req, res, async (err) => {
+      console.log(req.file.pdfFile);
+      const pdfName = Date.now().toString().substring(0, 10);
+
       if (err) {
         console.log(err);
+
         throw new Error("File upload failed");
       }
-      return res.status(200).json({ message: `Resume saved successfully` });
+      return res
+        .status(200)
+        .header("UniqueId", pdfName)
+        .json({ message: `Resume saved successfully` });
     });
   } catch (error) {
     return res.status(500).json({ error: `${error.message}` });
@@ -62,8 +69,8 @@ const postResume = async (req, res) => {
 
 const postForm = async (req, res) => {
   try {
-      const jobId = await req.header("jobId");
-
+    const jobId = await req.header("jobId");
+    const resumeLink = await req.header("UniqueId");
 
     const {
       fullName,
@@ -75,8 +82,6 @@ const postForm = async (req, res) => {
       customQuestions,
       linkedinProfile,
     } = req.body;
-    const resumeLink = Date.now().toString().substring(0, 7);
-
 
     const application = new JobApplication({
       jobId,
