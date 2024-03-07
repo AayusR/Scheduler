@@ -10,9 +10,17 @@ employerRouter.post("/login", employerAuthController.login);
 employerRouter.get("/dashboard", authenticateJWT("Company"), 
 getUserController.getCreatedJobOffers
 );
+employerRouter.get("/getapplicant", authenticateJWT("Company"), 
+getUserController.getApplicant
+);
+
+
+
 employerRouter.post(
   "/create-job",
   authenticateJWT("Company"),
   createjobController.createJob
 );
+
+
 export default employerRouter;

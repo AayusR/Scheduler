@@ -2,6 +2,8 @@ import JobApplication from "../../models/applicant/applicationform.js";
 import JobOffer from "../../models/company/joboffer.js";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+import fs from 'fs'
+
 
 const getCreatedJobOffers = async (req, res) => {
   try {
@@ -29,13 +31,29 @@ const getCreatedJobOffers = async (req, res) => {
 };
 
 
+const getApplicant = async (req, res) => {
+  try {
+    const jobId = await req.header("jobId");
+    const jobApplicant = await JobApplication.find({
+      jobId: jobId,
+    });
+
+
+   await fs.writeFile('./algorithms/job_applicants.json', JSON.stringify(jobApplicant, null, 4), (err) => {
+      console.log("hellp");
+      if (err) {
+          console.error('Error writing JSON data to file:', err);
+          return res.status(500).json({ error: 'Internal Server Error' });
+   } })
 
 
 
-
-
-
-
+    return res.status(200).json(jobApplicant);
+  } catch (error) {
+    console.error("Error in getApplicant:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 
 
@@ -46,4 +64,5 @@ const getCreatedJobOffers = async (req, res) => {
 
 export default {
   getCreatedJobOffers,
+  getApplicant,
 };

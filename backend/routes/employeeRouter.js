@@ -16,17 +16,17 @@ employeeRouter.get(
   getJobOffersController.getJobOffers
 );
 employeeRouter.get(
-  "/joboffers/:jobOfferId",
+  "/joboffers/byid",
   authenticateJWT("Employee"),
   getJobOffersController.getJobById
 );
 employeeRouter.post(
-"/joboffers/:jobOfferId/submit-requirements",
+"/joboffers/byid/submit-requirements",
   authenticateJWT("Employee"),
   getJobOffersController.postForm,
 );
 employeeRouter.post(
-  "/joboffers/:jobOfferId/submit-requirements/resume",
+  "/joboffers/byid/submit-requirements/resume",
     authenticateJWT("Employee"),
     getJobOffersController.postResume,
   );

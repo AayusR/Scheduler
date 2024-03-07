@@ -24,7 +24,6 @@ const getJobOffers = async (req, res) => {
       status: "open",
     });
 
-    console.log(jobOffers);
     res.status(200).json(jobOffers);
   } catch (error) {
     console.error(error);
@@ -34,7 +33,7 @@ const getJobOffers = async (req, res) => {
 
 const getJobById = async (req, res) => {
   try {
-    const jobOfferId = req.params.jobOfferId;
+    const jobOfferId = await req.header("jobId");
 
     const jobOffer = await JobOffer.findById(jobOfferId);
 
@@ -63,9 +62,9 @@ const postResume = async (req, res) => {
 
 const postForm = async (req, res) => {
   try {
-    // const jobId = req.params.id;
+      const jobId = await req.header("jobId");
 
-    const jobId = "65e47662a16e0c7deb2fc974";
+
     const {
       fullName,
       email,
