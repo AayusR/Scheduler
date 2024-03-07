@@ -8,7 +8,10 @@ const jobOfferSchema = new mongoose.Schema({
   salary: { type: Number },
   applicationDeadline: { type: Date },
   numberOfEmployees: { type: Number, required: true },
-
+  company: {
+    type: String,
+    required: true,
+  },
   datePosted: { type: Date, default: Date.now },
   status: { type: String, enum: ["open", "closed"], default: "open" },
 });

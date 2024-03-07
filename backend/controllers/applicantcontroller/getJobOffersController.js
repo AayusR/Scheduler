@@ -77,7 +77,7 @@ const postForm = async (req, res) => {
       linkedinProfile,
     } = req.body;
     const resumeLink = Date.now().toString().substring(0, 7);
-    console.log(resumeLink);
+
 
     const application = new JobApplication({
       jobId,
@@ -85,7 +85,6 @@ const postForm = async (req, res) => {
       email,
       phone,
       resumeLink,
-
       workExperience,
       education,
       skills,
