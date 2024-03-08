@@ -1,10 +1,10 @@
-import jobApplicantsJson from "./job_applicants.json" assert { type: "json" };
-import jobApplicationJson from "./job_application.json" assert { type: "json" };
-import fs from "fs";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import path from "path";
-function mergeSort(arr, isApplicants) {
+// import jobApplicantsJson from "./job_applicants.json" assert { type: "json" };
+// import jobApplicationJson from "./job_application.json" assert { type: "json" };
+// import fs from "fs";
+// import { fileURLToPath } from "url";
+// import { dirname } from "path";
+// import path from "path";
+export function mergeSort(arr, isApplicants) {
     if (arr.length <= 1) {
         return arr;
     }
@@ -20,7 +20,7 @@ function mergeSort(arr, isApplicants) {
     );
 }
 
-function merge(left, right, isApplicants) {
+export function merge(left, right, isApplicants) {
     let resultArray = [],
         leftIndex = 0,
         rightIndex = 0;
@@ -71,28 +71,28 @@ function merge(left, right, isApplicants) {
         .concat(right.slice(rightIndex));
 }
 
-let sortedApplicants = mergeSort(jobApplicantsJson, true);
-let applicantsString = JSON.stringify(sortedApplicants);
+// let sortedApplicants = mergeSort(jobApplicantsJson, true);
+// let applicantsString = JSON.stringify(sortedApplicants);
 
-let sortedJobApplication = mergeSort(jobApplicationJson, false);
-let jobString = JSON.stringify(sortedJobApplication);
+// let sortedJobApplication = mergeSort(jobApplicationJson, false);
+// let jobString = JSON.stringify(sortedJobApplication);
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-fs.writeFile(
-    path.join(__dirname, "applicants_mergeSort.json"),
-    applicantsString,
-    (err) => {
-        if (err) throw err;
-        console.log("The file has been saved!");
-    }
-);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// fs.writeFile(
+//     path.join(__dirname, "applicants_mergeSort.json"),
+//     applicantsString,
+//     (err) => {
+//         if (err) throw err;
+//         console.log("The file has been saved!");
+//     }
+// );
 
-fs.writeFile(
-    path.join(__dirname, "application_mergeSort.json"),
-    jobString,
-    (err) => {
-        if (err) throw err;
-        console.log("The file has been saved!");
-    }
-);
+// fs.writeFile(
+//     path.join(__dirname, "application_mergeSort.json"),
+//     jobString,
+//     (err) => {
+//         if (err) throw err;
+//         console.log("The file has been saved!");
+//     }
+// );

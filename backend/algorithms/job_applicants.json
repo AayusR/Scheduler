@@ -8,25 +8,21 @@
         "resumeLink": "1709808",
         "workExperience": 5,
         "education": " Masters",
-        "skills": [
-            " [Java, Spring]"
-        ],
+        "skills": [" [Java, Spring, VideoEditing]"],
         "linkedinProfile": " https://linkedin.com/john",
         "__v": 0
     },
     {
-        "_id": "65e99cf06a41c203bbf57fea",
-        "jobId": "65e47662a16e0c7deb2fc974",
-        "fullName": " johnsmith",
-        "email": " john@smith.com",
-        "phone": 9876,
-        "resumeLink": "1709808",
-        "workExperience": 5,
-        "education": " Masters",
-        "skills": [
-            " [Java, Spring]"
-        ],
-        "linkedinProfile": " https://linkedin.com/john",
+        "_id": "65e99kf06a31c203bbf57fea",
+        "jobId": "65e47662a16e0c7deb2fc988",
+        "fullName": " joesmith",
+        "email": " joe@smith.com",
+        "phone": 9816,
+        "resumeLink": "1704809",
+        "workExperience": 4,
+        "education": " Bachelors",
+        "skills": [" [Java, Spring, SQL, C++]"],
+        "linkedinProfile": " https://linkedin.com/joe",
         "__v": 0
     },
     {
@@ -38,9 +34,7 @@
         "resumeLink": "1709808",
         "workExperience": 7,
         "education": " PhD",
-        "skills": [
-            " [Python, Django]"
-        ],
+        "skills": [" [Python, Django]"],
         "linkedinProfile": " https://linkedin.com/mary",
         "__v": 0
     },
@@ -53,9 +47,7 @@
         "resumeLink": "1709808",
         "workExperience": 4,
         "education": " Bachelor of Science",
-        "skills": [
-            " [JavaScript, React]"
-        ],
+        "skills": [" [JavaScript, React]"],
         "linkedinProfile": " https://linkedin.com/alex",
         "__v": 0
     },
@@ -68,9 +60,7 @@
         "resumeLink": "1709808",
         "workExperience": 6,
         "education": " Master of Business Administration",
-        "skills": [
-            " [C#, .NET]"
-        ],
+        "skills": [" [C#, .NET]"],
         "linkedinProfile": " https://linkedin.com/emily",
         "__v": 0
     },
@@ -83,9 +73,7 @@
         "resumeLink": "1709809",
         "workExperience": 8,
         "education": " Doctorate",
-        "skills": [
-            " [SQL, Database Management]"
-        ],
+        "skills": [" [SQL, Database Management]"],
         "linkedinProfile": " https://linkedin.com/michael",
         "__v": 0
     },
@@ -98,9 +86,7 @@
         "resumeLink": "1709809",
         "workExperience": 5,
         "education": " Bachelor of Arts",
-        "skills": [
-            " [PHP, Laravel]"
-        ],
+        "skills": [" [PHP, Laravel]"],
         "linkedinProfile": " https://linkedin.com/sarah",
         "__v": 0
     },
@@ -113,9 +99,7 @@
         "resumeLink": "1709809",
         "workExperience": 6,
         "education": " Master of Fine Arts",
-        "skills": [
-            " [Ruby, Rails]"
-        ],
+        "skills": [" [Ruby, Rails]"],
         "linkedinProfile": " https://linkedin.com/natalie",
         "__v": 0
     },
@@ -128,9 +112,7 @@
         "resumeLink": "1709809",
         "workExperience": 4,
         "education": " Bachelor of Commerce",
-        "skills": [
-            " [Angular, TypeScript]"
-        ],
+        "skills": [" [Angular, TypeScript]"],
         "linkedinProfile": " https://linkedin.com/peter",
         "__v": 0
     },
@@ -143,9 +125,7 @@
         "resumeLink": "1709809",
         "workExperience": 7,
         "education": " Pharmacy Doctorate",
-        "skills": [
-            " [Vue.js, Node.js]"
-        ],
+        "skills": [" [Vue.js, Node.js]"],
         "linkedinProfile": " https://linkedin.com/jessica",
         "__v": 0
     },
@@ -158,9 +138,7 @@
         "resumeLink": "1709809",
         "workExperience": 5,
         "education": " Bachelor of Science in Nursing",
-        "skills": [
-            " [Java, Spring Boot]"
-        ],
+        "skills": [" [Java, Spring]"],
         "linkedinProfile": " https://linkedin.com/olivia",
         "__v": 0
     },
@@ -171,11 +149,9 @@
         "email": " itsworking@com",
         "phone": 9876,
         "resumeLink": "1709869845",
-        "workExperience": 5,
+        "workExperience": 7,
         "education": " Masters",
-        "skills": [
-            " [Java, Spring]"
-        ],
+        "skills": [" [Nodejs, React, C++, Python, Django]"],
         "linkedinProfile": " https://linkedin.com/john",
         "__v": 0
     }
