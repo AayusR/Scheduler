@@ -14,7 +14,7 @@ const Testimonials = () => {
           <Row>
             <Col>
             <h1 className="text-center fw-bold animate__animated animate__fadeInUp animate__delay-1s"> All Testimonials </h1>
-            <p className="text-center animate__animated animate__fadeInUp animate__delay-1s"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p className="text-center animate__animated animate__fadeInUp animate__delay-1s">Our customers’ experiences speak volumes about the impact our app has on their daily lives. From increased productivity to seamless scheduling, read their stories and discover why our app is the preferred choice for so many.</p>
 
             </Col>
           </Row>
