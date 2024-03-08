@@ -1,6 +1,8 @@
 import JobOffer from "../../models/company/joboffer.js";
 import JobApplication from "../../models/applicant/applicationform.js";
 import multer from "multer";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -106,9 +108,43 @@ const postForm = async (req, res) => {
   }
 };
 
+const getUpcommingInterviews = async (req, res) => {
+  try {
+    const token = await req.header("Authorization");
+    const currentDate = new Date();
+    if (!token) {
+      return res.sendStatus(401).json({ error: "Couldnt get token" });
+    }
+
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET_E);
+
+    const userEmail = decodedToken.email;
+
+    const jobInterview = await JobApplication.find({
+      email: userEmail
+    });
+  
+    const jobIds = jobInterview.map((user) => user.jobId);
+    console.log(jobIds);
+    const upcommingInterviews = await JobOffer.find({ _id: { $in: jobIds } }  );
+
+    const filteredInterviews = upcommingInterviews.filter((job) => {
+      const applicationDeadline = new Date(job.applicationDeadline);
+
+      return applicationDeadline > currentDate;
+    });
+
+
+    return res.status(200).json(filteredInterviews);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export default {
   getJobOffers,
   getJobById,
   postForm,
   postResume,
+  getUpcommingInterviews,
 };

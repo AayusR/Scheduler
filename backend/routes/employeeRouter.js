@@ -31,4 +31,12 @@ employeeRouter.post(
     getJobOffersController.postResume,
   );
 
+  employeeRouter.get(
+    "/upcomminginterview",
+      authenticateJWT("Employee"),
+      getJobOffersController.getUpcommingInterviews,
+    );
+
+
+
 export default employeeRouter;
