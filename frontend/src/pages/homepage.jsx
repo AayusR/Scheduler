@@ -33,7 +33,7 @@ const homepage = () => {
             <p className="mb-4 animate__animated animate__fadeInUp animate__delay-1s">
               Scheduler is a Job Interview Scheduling platform that helps corporates to organise and manage their interview slots.
             </p>
-            <button className="btn btn-success btn-lg rounded-1 me-2 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s" onClick={() => navigate("/class")}>See anything ...</button>
+            <button className="btn btn-success btn-lg rounded-1 me-2 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s" onClick={() => navigate("/class")}>Job Listings</button>
             <button className="btn btn-outline-success btn-lg rounded-1 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s">See anything..</button>
             </Col>
             <Col lg="6" className="pt-lg-0 pt-5">
