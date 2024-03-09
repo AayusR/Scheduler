@@ -35,7 +35,7 @@ function App() {
         return (
           <Routes>
             <Route path="/" Component={Employeedashboard} />
-            <Route path="/listjob" element={<ListJob />} />
+            <Route path="/listjob" Component={ListJob} />
     
           </Routes>
         );

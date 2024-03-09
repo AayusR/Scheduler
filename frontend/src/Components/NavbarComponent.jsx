@@ -39,7 +39,7 @@ const NavbarComponentLoggedOut = () => {
                         isPending ? "pending" : isActive ? "active" : ""
                       }
                       end
-                    > 
+                    >
                       {link.text}
                     </NavLink>
                   </div>
@@ -72,10 +72,6 @@ const NavbarComponentLoggedOut = () => {
   );
 };
 
-
-
-
-
 function NavbarComponent() {
   const loginStates = ["logged-out", "employee-loggedin", "employer-loggedin"];
   const [loggedInState, setLoggedInState] = useState(loginStates[0]);
@@ -94,7 +90,7 @@ function NavbarComponent() {
     };
 
     checkTokens();
-  }, []); 
+  }, []);
   return (
     <>
       {loggedInState === loginStates[0] ? (
@@ -111,6 +107,5 @@ function NavbarComponent() {
     </>
   );
 }
-
 
 export default NavbarComponent;
