@@ -19,7 +19,7 @@ async function signup(req, res) {
 
       await newUser.save();
 
-      res.json({ message: "Employee signup successful" });
+      res.json({ message: "Signup successful" });
     } else {
       res.json({ message: "Email already used" });
     }

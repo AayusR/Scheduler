@@ -3,6 +3,7 @@ import JobApplication from "../../models/applicant/applicationform.js";
 import multer from "multer";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+import fs from "fs";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -25,6 +26,17 @@ const getJobOffers = async (req, res) => {
       applicationDeadline: { $gt: currentDate },
       status: "open",
     });
+
+    await fs.writeFile(
+      "./algorithms/job_application.json",
+      JSON.stringify(jobOffers, null, 4),
+      (err) => {
+        if (err) {
+          console.error("Error writing JSON data to file:", err);
+          return res.status(500).json({ error: "Internal Server Error" });
+        }
+      }
+    );
 
     res.status(200).json(jobOffers);
   } catch (error) {
@@ -121,19 +133,18 @@ const getUpcommingInterviews = async (req, res) => {
     const userEmail = decodedToken.email;
 
     const jobInterview = await JobApplication.find({
-      email: userEmail
+      email: userEmail,
     });
-  
+
     const jobIds = jobInterview.map((user) => user.jobId);
     console.log(jobIds);
-    const upcommingInterviews = await JobOffer.find({ _id: { $in: jobIds } }  );
+    const upcommingInterviews = await JobOffer.find({ _id: { $in: jobIds } });
 
     const filteredInterviews = upcommingInterviews.filter((job) => {
       const applicationDeadline = new Date(job.applicationDeadline);
 
       return applicationDeadline > currentDate;
     });
-
 
     return res.status(200).json(filteredInterviews);
   } catch (error) {

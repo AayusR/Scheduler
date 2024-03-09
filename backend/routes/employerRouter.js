@@ -14,6 +14,9 @@ employerRouter.get("/getapplicant", authenticateJWT("Company"),
 getUserController.getApplicant
 );
 
+employerRouter.get("/getsortedapplicant", authenticateJWT("Company"), 
+getUserController.getSortedApplicant
+);
 
 
 employerRouter.post(

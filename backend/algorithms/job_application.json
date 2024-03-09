@@ -148,5 +148,20 @@
         "status": "open",
         "datePosted": "2024-03-07T14:37:07.701Z",
         "__v": 0
+    },
+    {
+        "_id": "65ea95bda99861ec5c28a08d",
+        "title": " Customer Support Specialist",
+        "description": " Providing excellent customer service, resolving inquiries and issues",
+        "requirements": " Customer support experience, communication skills, patience",
+        "category": " Customer Service",
+        "location": " Hybrid",
+        "salary": 90000,
+        "applicationDeadline": "2025-03-19T18:15:00.000Z",
+        "numberOfEmployees": 7,
+        "company": "Gooogle",
+        "status": "open",
+        "datePosted": "2024-03-08T04:36:13.774Z",
+        "__v": 0
     }
 ]

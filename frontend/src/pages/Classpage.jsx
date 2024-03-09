@@ -13,10 +13,10 @@ const Classpage = () => {
             <Container>
               <Row>
                 <Col>
-                <h1 className="fw-bold Item"> See All Job Listing
+                <h1 className="fw-bold Item"> See All Class Listing
 
                 </h1>
-                <p className="text-center animate__animated animate__fadeInUp animate__delay-1s">Are you ready to take the next step in your career? Explore open positions and find the perfect fit for your skills and ambitions. Companies are waiting for you!</p>
+                <p className="text-center animate__animated animate__fadeInUp animate__delay-1s">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                 </Col>
               </Row>
               <Row>

@@ -11,7 +11,7 @@ const port = 3000;
 await connectDB();
 app.use(cors);
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json())
 app.use((req, res, next) => {
     const userRole = req.headers['user-role'];
 

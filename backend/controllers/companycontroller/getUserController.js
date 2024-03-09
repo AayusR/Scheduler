@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import "dotenv/config";
 import fs from "fs";
 
+
 const getCreatedJobOffers = async (req, res) => {
   try {
     const token = await req.header("Authorization");
@@ -51,7 +52,29 @@ const getApplicant = async (req, res) => {
   }
 };
 
+const getSortedApplicant = async (req, res) => {
+  try {
+
+    fs.readFile('./algorithms/applicants_mergeSort.json', 'utf8', (err, data) => {
+      if (err) {
+        console.error("Error reading file:", err);
+        return res.status(500).json({ error: "Internal Server Error" });
+      }
+
+      const jobApplicant = JSON.parse(data);
+      console.log(jobApplicant);
+
+      return res.status(200).json(jobApplicant);
+    });
+
+  } catch (error) {
+    console.error("Error in getApplicant", error.message);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 export default {
   getCreatedJobOffers,
   getApplicant,
+  getSortedApplicant,
 };
