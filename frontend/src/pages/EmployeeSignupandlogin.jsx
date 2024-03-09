@@ -38,7 +38,19 @@ const EmployeeSignupandlogin = () => {
       });
 
       console.log("Server response:", response.data);
-      localStorage.setItem("token", response.data.token);
+      const key = "Employertoken"
+      const storedValue = localStorage.getItem(key);
+
+      if (storedValue !== null) {
+       
+        localStorage.removeItem(key);
+      
+      }
+
+
+
+
+      localStorage.setItem("Employeetoken", response.data.token);
     } catch (error) {
       console.error("Error signing up:", error.message);
     }

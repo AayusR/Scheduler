@@ -49,9 +49,18 @@ const EmployerSignupandlogin = () => {
         email: email,
         password: password,
       });
+      const key = "Employeetoken"
+      const storedValue = localStorage.getItem(key);
+
+      if (storedValue !== null) {
+       
+        localStorage.removeItem(key);
+      
+      }
+
 
       console.log("Server response:", response.data);
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("Employertoken", response.data.token);
     } catch (error) {
       console.error("Error signing up:", error.message);
     }
