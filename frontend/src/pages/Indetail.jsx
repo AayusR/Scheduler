@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card} from "react-bootstrap";
 import axiosInstance from "../../axios";
-import { useNavigate } from 'react-router-dom'; 
-const ListJob = () => {
+
+const Indetail = () => {
   const [jobOffers, setJobOffers] = useState([]);
-  const navigate = useNavigate();
+
   useEffect(() => {
     const employeeToken = localStorage.getItem("Employeetoken");
     console.log("Employee Token:", employeeToken);
-
+    const jobId = localStorage.getItem("jobId");
     if (employeeToken) {
       axiosInstance
-        .get("/employee/joboffers/", {
+        .get("employee/upcomminginterview/", {
           headers: {
             Authorization: `${employeeToken}`,
+            jobId: `${jobId}`,
           },
         })
         .then((response) => {
@@ -24,12 +25,6 @@ const ListJob = () => {
     }
   }, []);
 
-  const handleApplyNow = (jobId) => {
-    localStorage.setItem("jobId", jobId);
-    axiosInstance.defaults.headers.common['Job-Id'] = jobId;
-
-    navigate('/applyjob');
-  };
 
 
 
@@ -38,7 +33,7 @@ const ListJob = () => {
 
   return (
     <div>
-      <h1>Job Offers</h1>
+      <h1>Detailed view</h1>
       <div className="job-offers-container">
         {jobOffers.map((offer) => (
           <Card key={offer._id} style={{ width: "18rem" }}>
@@ -50,9 +45,12 @@ const ListJob = () => {
                 {offer.company}
               </Card.Subtitle>{" "}
               <Card.Text>Location: {offer.location}</Card.Text>{" "}
+              <Card.Text>Category: {offer.category}</Card.Text>{" "}
+              <Card.Text>Salary: $ {offer.salary}</Card.Text>{" "}
+              <Card.Text>Application Deadline: $ {offer.applicationDeadline}</Card.Text>{" "}
+              <Card.Text>Number Of Employees: {offer.numberOfEmployees}</Card.Text>{" "}
               <Card.Text>Description: {offer.description}</Card.Text>{" "}
-              <Button variant="primary" onClick={() => handleApplyNow(offer._id)} >Apply Now</Button>{" "}
-     
+            
             </Card.Body>{" "}
           </Card>
         ))}
@@ -61,4 +59,4 @@ const ListJob = () => {
   );
 };
 
-export default ListJob;
+export default Indetail;

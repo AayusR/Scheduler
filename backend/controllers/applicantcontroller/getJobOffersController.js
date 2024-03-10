@@ -135,17 +135,17 @@ const getUpcommingInterviews = async (req, res) => {
     const jobInterview = await JobApplication.find({
       email: userEmail,
     });
-
+console.log(userEmail);
     const jobIds = jobInterview.map((user) => user.jobId);
     console.log(jobIds);
     const upcommingInterviews = await JobOffer.find({ _id: { $in: jobIds } });
-
+console.log(upcommingInterviews);
     const filteredInterviews = upcommingInterviews.filter((job) => {
       const applicationDeadline = new Date(job.applicationDeadline);
 
       return applicationDeadline > currentDate;
     });
-
+    console.log(filteredInterviews);
     return res.status(200).json(filteredInterviews);
   } catch (error) {
     res.status(500).json({ error: error.message });

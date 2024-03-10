@@ -12,7 +12,8 @@ import Employeedashboard from "./pages/Employeedashboard";
 import NavbarComponent from "./Components/NavbarComponent";
 import Footer from "./Components/Footer";
 import CreateJob from "./pages/CreateJob";
-
+import ApplyforJob from "./pages/ApplyforJob";
+import Indetail from "./pages/Indetail";
 function App() {
   const [loggedInState, setLoggedInState] = useState("logged-out");
 
@@ -36,7 +37,8 @@ function App() {
           <Routes>
             <Route path="/" Component={Employeedashboard} />
             <Route path="/listjob" Component={ListJob} />
-    
+            <Route path="/applyjob" Component={ApplyforJob} />
+            <Route path="/jobindetail" Component={Indetail} />
           </Routes>
         );
       case "employer":
