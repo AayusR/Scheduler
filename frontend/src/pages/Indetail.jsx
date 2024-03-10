@@ -47,7 +47,7 @@ const Indetail = () => {
               <Card.Text>Location: {offer.location}</Card.Text>{" "}
               <Card.Text>Category: {offer.category}</Card.Text>{" "}
               <Card.Text>Salary: $ {offer.salary}</Card.Text>{" "}
-              <Card.Text>Application Deadline: $ {offer.applicationDeadline}</Card.Text>{" "}
+              <Card.Text>Application Deadline: {new Date(offer.applicationDeadline).toLocaleString()}</Card.Text>{" "}
               <Card.Text>Number Of Employees: {offer.numberOfEmployees}</Card.Text>{" "}
               <Card.Text>Description: {offer.description}</Card.Text>{" "}
             

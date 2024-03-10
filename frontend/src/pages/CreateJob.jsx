@@ -13,6 +13,7 @@ const CreateJob = () => {
     const [success, setSuccess] = useState("");
     const handleSubmit = async () => {
         try {
+            const employerToken = localStorage.getItem("Employertoken");
             console.log("Create Job:", {
                 title,
                 description,
@@ -23,8 +24,8 @@ const CreateJob = () => {
                 salary,
                 applicationDeadline,
             });
-            const response = await axiosInstance.post("/employee/", {
-                //k rakhne yeha thavayena
+            const response = await axiosInstance.post("/employer/create-job", {
+              
                 title: title,
                 description: description,
                 requirements: requirements,
@@ -33,7 +34,19 @@ const CreateJob = () => {
                 location: location,
                 salary: salary,
                 applicationDeadline: applicationDeadline,
-            });
+            },
+            
+            {
+                headers: {
+                  Authorization: `${employerToken}`,
+                 
+                },
+              }
+
+
+
+
+            );
 
             console.log("Server response:", response.data);
             setSuccess(response.data.message);
@@ -115,7 +128,7 @@ const CreateJob = () => {
                     />
                 </div>
                 <div className="input">
-                    <img src={user_icon} alt="" />
+                  <label>Application Deadline</label>
                     <input
                         type="date"
                         placeholder="Application Deadline"

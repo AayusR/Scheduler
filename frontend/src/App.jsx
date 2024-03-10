@@ -14,6 +14,8 @@ import Footer from "./Components/Footer";
 import CreateJob from "./pages/CreateJob";
 import ApplyforJob from "./pages/ApplyforJob";
 import Indetail from "./pages/Indetail";
+import ListApplicant from "./pages/ListApplicant";
+import SortApplicant from "./pages/SortApplicant";
 function App() {
   const [loggedInState, setLoggedInState] = useState("logged-out");
 
@@ -45,7 +47,8 @@ function App() {
         return (  <Routes>
           <Route path="/" Component={Employerdashboard} />
           <Route path="/createjob" element={<CreateJob />} />
-
+          <Route path="/applicantlist" element={<ListApplicant />} />
+          <Route path="/sortdata" element={<SortApplicant />} />
         </Routes>);
       case "logged-out":
       default:

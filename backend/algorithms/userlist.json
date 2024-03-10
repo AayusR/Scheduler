@@ -1,0 +1,82 @@
+[
+    {
+        "_id": "65dca9cd59df6c4982937192",
+        "fName": "Arbashu",
+        "lName": "Dhakal",
+        "email": "itsworking@com",
+        "password": "$2b$05$jsCqWEbT/Q5lxoxFWIutqO2bx.T9uA64cBsNa9teodtgIZQ/jbCMm",
+        "role": "Employee",
+        "__v": 0
+    },
+    {
+        "_id": "65dcaaa12b921c20c96b540c",
+        "fName": "Anirudh",
+        "lName": "Shah",
+        "email": "anyone@com",
+        "password": "$2b$05$6UXjFFHW20MoIcaM03dL5OfQw8HSSRuU1TjXGKK14Wtj4p4.OW9.W",
+        "role": "Employee",
+        "__v": 0
+    },
+    {
+        "_id": "65dcad92539a217913861015",
+        "fName": "John",
+        "lName": "Doe",
+        "email": "john.doe@example.com",
+        "password": "password123",
+        "role": "user"
+    },
+    {
+        "_id": "65ec357d536d828051da4849",
+        "fName": "Anirudh",
+        "lName": "Shah",
+        "email": "anirudhne@com",
+        "password": "$2b$05$YquhaX5WRTz296kzkfxsZuDlK2sIBcBUBJsBhOmKSLCSEMonHLco6",
+        "role": "Employee",
+        "__v": 0
+    },
+    {
+        "_id": "65ec3692b0b9e078fa2bcf57",
+        "fName": "Hello ",
+        "lName": "Nepal",
+        "email": "hellonepal9@gmail.com",
+        "password": "$2b$05$rgPQPDz/5oFoy.XZHPgWAOcWgwWyE9S0FyFxFAL9R8S0PU6F02.76",
+        "role": "Employee",
+        "__v": 0
+    },
+    {
+        "_id": "65ec37cd7c7e7e5924536f78",
+        "fName": "Arbashu",
+        "lName": "Dhakal",
+        "email": "rbashu@gmail.com",
+        "password": "$2b$05$SBC/jYjtUkkthw6STMf5JOd7WSPbKgIA6qU3k16/.E.7s4h.fKlz2",
+        "role": "Employee",
+        "__v": 0
+    },
+    {
+        "_id": "65ec398e7c7e7e5924536f7d",
+        "fName": "Testy ",
+        "lName": "User",
+        "email": "testified@a.c",
+        "password": "$2b$05$8na9go5.bFG2jQR/lniT6e4VmsXZnuOAwmvX8/RdTG1ojxvUyZyLe",
+        "role": "Employee",
+        "__v": 0
+    },
+    {
+        "_id": "65ec59ce7c7e7e5924536f87",
+        "fName": "Wakar",
+        "lName": "Yunis",
+        "email": "wakabro@gmail.com",
+        "password": "$2b$05$hC0..NRtl.rQHuxaRRp3U.jBl2nuobRnwmJRNsEW.JBXWAM0.FNGm",
+        "role": "Employee",
+        "__v": 0
+    },
+    {
+        "_id": "65ec6aa27c7e7e5924536f8b",
+        "fName": "Ayush",
+        "lName": "Regmi",
+        "email": "ayush@gmail.com",
+        "password": "$2b$05$y7ULIzHVI2mm5.E87sy7kO7kHe1KoQjxu3ElDfs5fI6XByYx5ZW4y",
+        "role": "Employee",
+        "__v": 0
+    }
+]

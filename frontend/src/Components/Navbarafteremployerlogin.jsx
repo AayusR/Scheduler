@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate} from "react-router-dom";
 
 const NavbarComponentAfterEmployerLogin = () => {
   const [changeColor, setchangeColor] = useState(false);
@@ -12,6 +12,7 @@ const NavbarComponentAfterEmployerLogin = () => {
       setchangeColor(false);
     }
   };
+  const navigate = useNavigate();
   useEffect(() => {
     changeBackgroundColor();
 
@@ -20,8 +21,31 @@ const NavbarComponentAfterEmployerLogin = () => {
   const navLinks = [
     { id: 1, path: "/", text: "Dashboard" },
 
-    { id: 2, path: "/listjob", text: "Create job offer" },
+    { id: 2, path: "/createjob", text: "Create job offer" },
   ];
+
+  const handleLogout = () => {
+
+    localStorage.removeItem('Employertoken');
+
+    navigate('/');
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -50,7 +74,7 @@ const NavbarComponentAfterEmployerLogin = () => {
               })}
             </Nav>
 
-            <Button>Logout</Button>
+            <Button onClick={handleLogout}>Logout</Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

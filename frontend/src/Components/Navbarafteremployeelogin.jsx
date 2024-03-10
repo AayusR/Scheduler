@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate} from "react-router-dom";
 
 const NavbarComponentAfterEmployeeLogin = () => {
   const [changeColor, setchangeColor] = useState(false);
@@ -22,6 +22,15 @@ const NavbarComponentAfterEmployeeLogin = () => {
 
     { id: 2, path: "/listjob", text: "Get Offers" },
   ];
+  const navigate = useNavigate();
+  const handleLogout = () => {
+
+    localStorage.removeItem('Employeetoken');
+console.log("logg");
+    navigate('/');
+  };
+
+
   return (
     <div>
       <Navbar expand="lg" className={changeColor ? "color-active" : ""}>
@@ -49,7 +58,7 @@ const NavbarComponentAfterEmployeeLogin = () => {
               })}
             </Nav>
 
-            <Button>Logout</Button>
+            <Button onClick={handleLogout}>Logout</Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

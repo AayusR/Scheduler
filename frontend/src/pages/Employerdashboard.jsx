@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import axiosInstance from "../../axios";
-
+import { useNavigate } from 'react-router-dom'; 
 const Employerdashboard = () => {
   const [jobOffers, setJobOffers] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const employerToken = localStorage.getItem("Employertoken");
     console.log("Employer Token:", employerToken);
@@ -22,6 +23,15 @@ const Employerdashboard = () => {
         .catch((error) => console.error("Error fetching job offers:", error));
     }
   }, []);
+  const handleApplyNow = (jobId) => {
+    localStorage.setItem("jobId", jobId);
+    axiosInstance.defaults.headers.common['Job-Id'] = jobId;
+
+    navigate('/applicantlist');
+  };
+
+
+
   return (
     <div>
       <h1>Dashboard</h1>
@@ -35,7 +45,7 @@ const Employerdashboard = () => {
            
               <Card.Text>Location: {offer.location}</Card.Text>{" "}
               <Card.Text>Description: {offer.description}</Card.Text>{" "}
-              <Button variant="primary">View Applicant</Button>{" "}
+              <Button variant="primary" onClick={() => handleApplyNow(offer._id)} >View Applicant</Button>{" "}
             </Card.Body>{" "}
           </Card>
         ))}
